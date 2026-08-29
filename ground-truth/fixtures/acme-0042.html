@@ -1,0 +1,84 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Invoice INV-0042</title>
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font: 11pt/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1a1a; }
+  header { display: flex; justify-content: space-between; align-items: flex-start;
+           border-bottom: 2px solid #1a1a1a; padding-bottom: 12px; }
+  .brand { font-size: 20pt; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+  .brand small { display: block; font-size: 8.5pt; font-weight: 400; letter-spacing: 0;
+                 text-transform: none; color: #555; margin-top: 4px; line-height: 1.4; }
+  h1 { font-size: 22pt; margin: 0; font-weight: 300; letter-spacing: 2px; }
+  .meta { margin-top: 6px; font-size: 9.5pt; color: #444; text-align: right; }
+  .meta div { margin-top: 2px; }
+  .meta b { display: inline-block; min-width: 84px; color: #666; font-weight: 400; }
+  .parties { display: flex; gap: 40px; margin: 26px 0 20px; font-size: 10pt; }
+  .parties h2 { font-size: 8pt; text-transform: uppercase; letter-spacing: 1px;
+                color: #777; margin: 0 0 5px; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 10pt; }
+  thead th { text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: 1px;
+             color: #777; border-bottom: 1px solid #bbb; padding: 0 0 6px; font-weight: 600; }
+  tbody td { padding: 9px 0; border-bottom: 1px solid #eee; vertical-align: top; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th.num { text-align: right; }
+  tfoot td { padding: 6px 0; font-variant-numeric: tabular-nums; }
+  tfoot .label { text-align: right; color: #555; padding-right: 18px; }
+  tfoot .grand td { border-top: 2px solid #1a1a1a; font-size: 12pt; font-weight: 700; padding-top: 10px; }
+  footer { margin-top: 34px; padding-top: 12px; border-top: 1px solid #ddd;
+           font-size: 8.5pt; color: #666; line-height: 1.6; }
+</style>
+<header>
+  <div class="brand">Acme Pty Ltd
+    <small>Unit 4, 218 Bourke Street<br>Melbourne VIC 3000, Australia<br>ABN 51 824 753 556</small>
+  </div>
+  <div>
+    <h1>TAX INVOICE</h1>
+    <div class="meta">
+      <div><b>Invoice No.</b> INV-0042</div>
+      <div><b>Issue date</b> 29 August 2026</div>
+      <div><b>Due date</b> 28 September 2026</div>
+      <div><b>Reference</b> PO-99183</div>
+    </div>
+  </div>
+</header>
+
+<div class="parties">
+  <div><h2>Billed to</h2>
+    Northwind Trading Co.<br>Level 9, 55 Market Street<br>Sydney NSW 2000<br>ABN 42 118 902 441
+  </div>
+  <div><h2>Payment</h2>
+    BSB 083-004 &nbsp; Acct 45 892 1077<br>Terms: Net 30<br>Currency: AUD
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th class="num">Qty</th>
+      <th class="num">Unit price</th>
+      <th class="num">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Widget assembly — series B, powder-coated</td>
+      <td class="num">2</td><td class="num">150.00</td><td class="num">300.00</td>
+    </tr>
+    <tr>
+      <td>Freight &amp; handling</td>
+      <td class="num">1</td><td class="num">45.00</td><td class="num">45.00</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3" class="label">Subtotal</td><td class="num">345.00</td></tr>
+    <tr><td colspan="3" class="label">GST 10%</td><td class="num">34.50</td></tr>
+    <tr class="grand"><td colspan="3" class="label">Total due (AUD)</td><td class="num">$379.50</td></tr>
+  </tfoot>
+</table>
+
+<footer>
+  Payment due within 30 days of the issue date. Please quote invoice number INV-0042 with payment.<br>
+  Acme Pty Ltd is registered for GST. This document is a synthetic test fixture — no real entity is represented.
+</footer>

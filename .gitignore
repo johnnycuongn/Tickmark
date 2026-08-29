@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+dist/
+
+# Real invoices may contain third-party PII — labels are committed, source docs are not.
+# See ground-truth/LABELING.md for how to share the corpus.
+ground-truth/docs/*
+!ground-truth/docs/.gitkeep
+# Synthetic fixtures are ours and contain no PII — keep them.
+!ground-truth/docs/acme-*.pdf

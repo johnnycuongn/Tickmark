@@ -1,0 +1,22 @@
+{
+  "invoiceNumber": "INV-0042",
+  "invoiceDate": "2026-08-29",
+  "vendor": "Acme Pty Ltd",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Widget assembly — series B, powder-coated",
+      "quantity": 2,
+      "unitPrice": 150.00,
+      "amount": 300.00
+    },
+    {
+      "description": "Freight & handling",
+      "quantity": 1,
+      "unitPrice": 45.00,
+      "amount": 45.00
+    }
+  ],
+  "total": 379.50,
+  "notes": "Synthetic fixture, regenerate from ../fixtures/acme-0042.html. Carries four deliberate traps: (1) a Reference PO-99183 that must NOT be taken as invoiceNumber; (2) a Due date 28 Sept that must NOT be taken as invoiceDate; (3) Subtotal/GST rows that are NOT line items; (4) vendor printed ALL-CAPS, title-cased per convention. Arithmetic is consistent: 300.00 + 45.00 = 345.00 subtotal, +10% GST = 379.50."
+}
