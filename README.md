@@ -1,6 +1,9 @@
 # Tickmark
 
-**Invoice extraction that tells you which fields to check.**
+**It won't tick what it can't foot.**
+
+LLM invoice extraction that cross-checks its own arithmetic and sends only the doubtful
+fields to a human.
 
 Pulling fields out of an invoice with an LLM is a weekend project. Knowing which of those
 fields you can post to a ledger *without a human looking at them* is the actual problem.

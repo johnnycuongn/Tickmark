@@ -1,6 +1,7 @@
 {
   "name": "invoice-extract",
   "version": "0.1.0",
+  "description": "It won't tick what it can't foot. LLM invoice extraction that cross-checks its own arithmetic and sends only the doubtful fields to a human.",
   "private": true,
   "type": "module",
   "engines": {
