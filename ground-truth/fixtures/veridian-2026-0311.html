@@ -1,0 +1,72 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Invoice VS-2026-0311</title>
+<!--
+  Two things under test.
+  1) Thousands separators on five-figure amounts. "$11,520.00" must land as 11520,
+     and a model that strips the comma the wrong way gets 1152000 or 11.52. The schema
+     types these as numbers, so a string slips through only if it parses.
+  2) A negative "Loyalty credit" line printed INSIDE the item table, with a quantity and a
+     unit price. The labelling convention excludes discount rows from lineItems — but that
+     rule was written for rows in the totals block. A credit sitting in the item table with
+     qty and unit price is structurally a line item, so it is labelled as one, at -1250.00.
+     That distinction is now written down in LABELING.md; it needed to be, because the
+     answer changes the arithmetic check and two labellers would otherwise disagree.
+  3) Date is spelled out ("August 31, 2026") — no separator ambiguity to resolve, which
+     makes it the control against globex-2291 and atlas-freight-77201.
+-->
+<style>
+  @page { size: Letter; margin: 15mm; }
+  body { font: 10pt/1.45 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1f2933; }
+  header { display: flex; justify-content: space-between; align-items: flex-start;
+           background: #0f2b46; color: #fff; padding: 18px 20px; }
+  .co { font-size: 16pt; font-weight: 600; letter-spacing: .5px; }
+  .co small { display: block; font-size: 8pt; font-weight: 300; color: #b9cbdb; margin-top: 6px; line-height: 1.5; }
+  h1 { font-size: 20pt; margin: 0; font-weight: 200; letter-spacing: 3px; }
+  .meta { text-align: right; font-size: 9pt; color: #cfe0ee; margin-top: 8px; line-height: 1.7; }
+  .parties { display: flex; gap: 40px; margin: 22px 0 16px; font-size: 9.5pt; }
+  .parties h2 { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1.2px; color: #6b7a88; margin: 0 0 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  thead th { text-align: left; padding: 8px 8px; font-size: 8pt; text-transform: uppercase;
+             letter-spacing: 1px; color: #6b7a88; border-bottom: 2px solid #0f2b46; }
+  tbody td { padding: 10px 8px; border-bottom: 1px solid #e8edf1; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .credit { color: #8a1f1f; }
+  tfoot td { padding: 5px 8px; font-variant-numeric: tabular-nums; }
+  tfoot .label { text-align: right; color: #6b7a88; }
+  tfoot .grand td { border-top: 2px solid #0f2b46; font-weight: 700; font-size: 12.5pt; padding-top: 10px; }
+  footer { margin-top: 32px; border-top: 1px solid #e0e6ea; padding-top: 12px; font-size: 8pt; color: #6b7a88; line-height: 1.7; }
+</style>
+<header>
+  <div class="co">Veridian Systems Inc
+    <small>4400 Bellaire Boulevard, Suite 900<br>Houston, TX 77025<br>EIN 76-0918442</small>
+  </div>
+  <div>
+    <h1>INVOICE</h1>
+    <div class="meta">
+      Invoice No. VS-2026-0311<br>Invoice Date: August 31, 2026<br>Due Date: September 30, 2026<br>Customer ID: MER-4471
+    </div>
+  </div>
+</header>
+<div class="parties">
+  <div><h2>Bill to</h2>Meridian Retail Group, Inc.<br>19 Commerce Park Drive<br>Dallas, TX 75201</div>
+  <div><h2>Terms</h2>Net 30 &middot; PO 2026-114-A<br>Contract VS-MSA-2024<br>Currency: USD</div>
+</div>
+<table>
+  <thead><tr><th>Description</th><th class="num">Qty</th><th class="num">Unit price</th><th class="num">Amount</th></tr></thead>
+  <tbody>
+    <tr><td>Enterprise license &mdash; 120 seats, annual term</td><td class="num">120</td><td class="num">96.00</td><td class="num">11,520.00</td></tr>
+    <tr><td>Implementation services (hours)</td><td class="num">40</td><td class="num">175.00</td><td class="num">7,000.00</td></tr>
+    <tr><td>Data migration &mdash; legacy ERP extract</td><td class="num">1</td><td class="num">4,800.00</td><td class="num">4,800.00</td></tr>
+    <tr class="credit"><td>Loyalty credit &mdash; 2025 renewal</td><td class="num">1</td><td class="num">-1,250.00</td><td class="num">-1,250.00</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3" class="label">Subtotal</td><td class="num">22,070.00</td></tr>
+    <tr><td colspan="3" class="label">Sales tax (8.25%)</td><td class="num">1,820.78</td></tr>
+    <tr class="grand"><td colspan="3" class="label">Total due (USD)</td><td class="num">$23,890.78</td></tr>
+  </tfoot>
+</table>
+<footer>
+  Wire to JPMorgan Chase, ABA 111000614, account 8842 011 993, reference VS-2026-0311.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>

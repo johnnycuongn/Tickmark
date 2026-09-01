@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "extract": "tsx src/cli.ts",
+    "fixtures": "bash ground-truth/fixtures/build.sh",
+    "fixtures:check": "python3 ground-truth/fixtures/check.py",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"

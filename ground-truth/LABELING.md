@@ -66,6 +66,14 @@ unknown, use `null`.
 **lineItems** — one entry per billable row **as printed**.
 - Do NOT include subtotal, tax, shipping, or discount rows. Those are not line items;
   they are what the arithmetic check reconciles line items *against*.
+- **Credits and discounts: position decides.** A discount or credit printed in the *totals
+  block* is not a line item (`atlas-freight-77201`, volume discount). One printed *inside
+  the item table*, with its own quantity and unit price, **is** a line item, and its
+  `amount` keeps the minus sign (`veridian-2026-0311`, `-1250.00`).
+  This is arbitrary in the sense that either rule would work — what is not arbitrary is
+  picking one. Two labellers looking at a negative row will otherwise disagree, and the
+  disagreement shows up as a model error. The rule follows the document's own structure,
+  which is the tiebreak that needs the least judgement.
 - `description` verbatim, whitespace collapsed to single spaces.
 - `amount` as printed. If the printed amount disagrees with `quantity × unitPrice`,
   **record what is printed** and mention it in `notes`. That disagreement is a real
@@ -80,6 +88,24 @@ thousands separators. `1234.50`, not `"$1,234.50"`.
 `null` means *the field is not on the document*. It is a correct answer, and the harness
 scores it as one. Never use `null` to mean "I couldn't be bothered" or "it's blurry" —
 that pollutes recall for every field it touches.
+
+## Synthetic fixtures: `"synthetic": true`
+
+Documents we generated ourselves (`../fixtures/*.html` → `../docs/*.pdf`) carry
+`"synthetic": true` at the top of their label. Every other label omits the key.
+
+This is not bookkeeping. Synthetic documents are **evidence about the plumbing, not about
+accuracy**: we authored them, so the model does well on exactly the traps we thought to
+include, and badly on nothing we failed to imagine. A number measured on documents you
+wrote is measuring your imagination.
+
+**The eval harness must filter these out of its accuracy run.** A flag in the label is the
+only way it can — a folder convention gets forgotten the first time someone moves a file.
+Use them for smoke tests, prompt iteration, and demoing the pipeline offline; never quote
+a metric from them without saying it came from synthetic documents.
+
+The named concept is **test-set contamination**: when the thing you measure on and the
+thing you built from are not independent, the measurement stops meaning anything.
 
 ## Choosing the ~20 documents
 

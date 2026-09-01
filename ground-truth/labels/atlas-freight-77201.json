@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "77201",
+  "invoiceDate": "2026-07-09",
+  "vendor": "Atlas Freight Services Ltd",
+  "currency": "GBP",
+  "lineItems": [
+    { "description": "Groupage pallet — Manchester to Dublin", "quantity": 6, "unitPrice": 78.00, "amount": 468.00 },
+    { "description": "Groupage pallet — Manchester to Cork", "quantity": 4, "unitPrice": 92.00, "amount": 368.00 },
+    { "description": "Customs entry (T1 transit document)", "quantity": 1, "unitPrice": 55.00, "amount": 55.00 },
+    { "description": "Pallet exchange fee", "quantity": 10, "unitPrice": 4.50, "amount": 45.00 }
+  ],
+  "total": 1141.44,
+  "notes": "Three things at once. (1) '09/07/2026' from a Manchester vendor is DD/MM = 9 July 2026 — the mirror of globex-2291. (2) Line items are split across two side-by-side blocks, so there is no single top-to-bottom reading order; this is the document that argues for multimodal input over pre-OCR. (3) The volume discount (-46.80) and fuel surcharge (62.00) are in the totals block, so they are NOT line items. Consequence for Week 2: sum(lineItems) = 936.00 but total = 1141.44, so the arithmetic check must model discount + surcharge + VAT rather than comparing the line sum straight to the total. Vendor letterhead is CSS-uppercased; title-cased per convention."
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Rechnung R-2026-118</title>
+<!--
+  Nothing on this document is in English, and the numbers are formatted the European way:
+  "." groups thousands and "," is the decimal point. 2.480,00 is two thousand four hundred
+  and eighty, not two point four eight.
+  This is the field where a schema saves you: `total` is typed as a number, so a model that
+  echoes the string "2.480,00" fails validation loudly instead of quietly storing 2.48.
+  Also tests: "Rechnungsdatum 14.08.2026" (DD.MM.YYYY) and a vendor suffix (GmbH) that the
+  labelling convention says to keep as printed.
+-->
+<style>
+  @page { size: A4; margin: 20mm; }
+  body { font: 10.5pt/1.5 "Times New Roman", Georgia, serif; color: #111; }
+  .co { font-size: 9pt; color: #444; border-bottom: 1px solid #111; padding-bottom: 3px; }
+  .head { display: flex; justify-content: space-between; margin-top: 34px; }
+  .addr { font-size: 10.5pt; line-height: 1.55; }
+  .meta { font-size: 9.5pt; text-align: left; }
+  .meta div { margin-top: 2px; }
+  .meta b { font-weight: 400; color: #555; display: inline-block; min-width: 118px; }
+  h1 { font-size: 15pt; margin: 40px 0 4px; font-weight: 700; }
+  .betreff { font-size: 10pt; color: #333; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 10pt; margin-top: 10px; }
+  thead th { text-align: left; border-bottom: 1.5px solid #111; padding: 0 6px 5px 0; font-size: 9pt; }
+  tbody td { padding: 8px 6px 8px 0; border-bottom: 1px solid #ddd; vertical-align: top; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td { padding: 5px 6px 5px 0; font-variant-numeric: tabular-nums; }
+  tfoot .label { text-align: right; color: #444; }
+  tfoot .grand td { border-top: 1.5px solid #111; border-bottom: 3px double #111; font-weight: 700; padding: 8px 6px 8px 0; }
+  footer { margin-top: 40px; font-size: 8pt; color: #555; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 10px; }
+</style>
+<div class="co">Nordwind Logistik GmbH &middot; Hafenstra&szlig;e 12 &middot; 20457 Hamburg</div>
+<div class="head">
+  <div class="addr">
+    Meridian Handels AG<br>Postfach 41 08<br>50667 K&ouml;ln<br>Deutschland
+  </div>
+  <div class="meta">
+    <div><b>Rechnungsnummer</b> R-2026-118</div>
+    <div><b>Rechnungsdatum</b> 14.08.2026</div>
+    <div><b>Leistungszeitraum</b> 01.08.2026 &ndash; 31.08.2026</div>
+    <div><b>Kundennummer</b> 40 118</div>
+    <div><b>USt-IdNr.</b> DE 812 445 907</div>
+  </div>
+</div>
+<h1>Rechnung</h1>
+<div class="betreff">Sehr geehrte Damen und Herren, wir berechnen Ihnen die folgenden Leistungen:</div>
+<table>
+  <thead>
+    <tr><th>Pos.</th><th>Bezeichnung</th><th class="num">Menge</th><th class="num">Einzelpreis</th><th class="num">Betrag</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Seefracht Container 40ft (Hamburg &ndash; Rotterdam)</td><td class="num">2</td><td class="num">1.240,00</td><td class="num">2.480,00</td></tr>
+    <tr><td>2</td><td>Zollabfertigung und Dokumentation</td><td class="num">1</td><td class="num">385,50</td><td class="num">385,50</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4" class="label">Zwischensumme</td><td class="num">2.865,50</td></tr>
+    <tr><td colspan="4" class="label">zzgl. MwSt. 19 %</td><td class="num">544,45</td></tr>
+    <tr class="grand"><td colspan="4" class="label">Gesamtbetrag</td><td class="num">3.409,95 &euro;</td></tr>
+  </tfoot>
+</table>
+<footer>
+  Zahlbar innerhalb von 14 Tagen ohne Abzug. Bankverbindung: Hamburger Sparkasse,
+  IBAN DE44 2005 0550 1234 5678 90, BIC HASPDEHHXXX.<br>
+  Gesch&auml;ftsf&uuml;hrer: A. Br&auml;ndle &middot; Amtsgericht Hamburg HRB 118 442.
+  Synthetisches Testdokument &mdash; kein reales Unternehmen.
+</footer>

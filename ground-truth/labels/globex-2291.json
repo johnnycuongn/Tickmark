@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "GLX-2291",
+  "invoiceDate": "2026-03-04",
+  "vendor": "Globex Corporation",
+  "currency": "USD",
+  "lineItems": [
+    { "description": "Cloud infrastructure — March allotment", "quantity": 1, "unitPrice": 2400.00, "amount": 2400.00 },
+    { "description": "Support hours (senior tier)", "quantity": 6, "unitPrice": 185.00, "amount": 1110.00 }
+  ],
+  "total": 3742.54,
+  "notes": "Date trap. The document prints '03/04/2026'; the vendor is in Newark NJ, so it is MM/DD and resolves to 4 March 2026. Deliberately paired with atlas-freight-77201, which prints the same shape from a UK vendor and resolves the other way. If a prompt change fixes one of these and breaks the other, it has learned a format, not a rule. 'PO 7741-B' is not the invoice number. Arithmetic consistent: 2400.00 + 1110.00 = 3510.00, + 6.625% = 3742.54."
+}

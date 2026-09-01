@@ -1,0 +1,87 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tax Invoice 44120</title>
+<!--
+  22 line items, deliberately more than fit on one page. The table spills onto page 2 and
+  the totals block sits under the continuation.
+
+  What this catches: truncation. A model that runs out of patience returns 8 or 12 items
+  with high confidence on every one of them, and a single overall accuracy number will
+  barely twitch — you lose two thirds of the rows and the headline metric moves a couple
+  of points. This is precisely why the eval reports per-field recall on lineItems rather
+  than one blended score, and why the arithmetic check is the signal that screams: 12
+  items sum to nothing like 18,149.00.
+
+  Rows and totals in this fixture were generated from one table and the arithmetic was
+  verified before rendering — see the label's notes.
+-->
+<style>
+  @page { size: A4; margin: 15mm; }
+  body { font: 10pt/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif; color: #222; }
+  header { display: flex; justify-content: space-between; border-bottom: 4px solid #1d6b3f; padding-bottom: 10px; }
+  .co { font-size: 15pt; font-weight: 700; color: #1d6b3f; }
+  .co small { display: block; font-size: 8pt; font-weight: 400; color: #555; margin-top: 5px; line-height: 1.5; }
+  h1 { font-size: 13pt; margin: 0; letter-spacing: 2px; color: #1d6b3f; }
+  .meta { font-size: 8.5pt; text-align: right; margin-top: 6px; line-height: 1.7; color: #444; }
+  .to { margin: 16px 0 12px; font-size: 9pt; }
+  .to h2 { font-size: 7.5pt; text-transform: uppercase; letter-spacing: 1px; color: #1d6b3f; margin: 0 0 3px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  thead th { background: #eaf3ee; text-align: left; padding: 6px; font-size: 7.5pt;
+             text-transform: uppercase; letter-spacing: .8px; color: #1d6b3f; }
+  thead { display: table-header-group; }
+  tbody td { padding: 13px 6px; border-bottom: 1px solid #eee; }
+  tbody tr { page-break-inside: avoid; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td { padding: 5px 6px; font-variant-numeric: tabular-nums; }
+  tfoot .label { text-align: right; color: #555; }
+  tfoot .grand td { border-top: 2px solid #1d6b3f; font-weight: 700; font-size: 11.5pt; padding-top: 9px; }
+  footer { margin-top: 24px; font-size: 8pt; color: #666; line-height: 1.6; }
+</style>
+<header>
+  <div class="co">Citywide Facilities Management Pty Ltd
+    <small>88 Kembla Street, Wollongong NSW 2500<br>ABN 19 553 006 214 &nbsp;|&nbsp; (02) 4229 8800</small>
+  </div>
+  <div>
+    <h1>TAX INVOICE</h1>
+    <div class="meta">
+      Invoice No. 44120<br>Issue date 31 August 2026<br>Period 1&ndash;31 August 2026<br>Terms Net 30
+    </div>
+  </div>
+</header>
+<div class="to"><h2>Billed to</h2>Meridian Retail Holdings Pty Ltd &middot; Level 4, 200 Crown Street, Wollongong NSW 2500 &middot; ABN 77 118 220 901</div>
+<table>
+  <thead><tr><th>#</th><th>Description</th><th class="num">Qty</th><th class="num">Unit $</th><th class="num">Amount $</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Nightly clean &mdash; Site 01, Crown Street Mall</td><td class="num">22</td><td class="num">145.00</td><td class="num">3,190.00</td></tr>
+    <tr><td>2</td><td>Nightly clean &mdash; Site 02, Kembla Street depot</td><td class="num">22</td><td class="num">96.00</td><td class="num">2,112.00</td></tr>
+    <tr><td>3</td><td>Scheduled clean 3x weekly &mdash; Site 03, Fairy Meadow office</td><td class="num">13</td><td class="num">88.00</td><td class="num">1,144.00</td></tr>
+    <tr><td>4</td><td>Scheduled clean 3x weekly &mdash; Site 04, Corrimal branch</td><td class="num">13</td><td class="num">88.00</td><td class="num">1,144.00</td></tr>
+    <tr><td>5</td><td>Weekly clean &mdash; Site 05, Thirroul branch</td><td class="num">4</td><td class="num">120.00</td><td class="num">480.00</td></tr>
+    <tr><td>6</td><td>Weekly clean &mdash; Site 06, Dapto depot</td><td class="num">4</td><td class="num">120.00</td><td class="num">480.00</td></tr>
+    <tr><td>7</td><td>Window cleaning, external &mdash; Crown Street Mall</td><td class="num">1</td><td class="num">640.00</td><td class="num">640.00</td></tr>
+    <tr><td>8</td><td>Window cleaning, external &mdash; Kembla Street depot</td><td class="num">1</td><td class="num">385.00</td><td class="num">385.00</td></tr>
+    <tr><td>9</td><td>Carpet steam clean &mdash; Level 2, Fairy Meadow</td><td class="num">1</td><td class="num">720.00</td><td class="num">720.00</td></tr>
+    <tr><td>10</td><td>Hard floor strip and seal &mdash; Corrimal branch</td><td class="num">1</td><td class="num">950.00</td><td class="num">950.00</td></tr>
+    <tr><td>11</td><td>Washroom consumables restock &mdash; all sites</td><td class="num">6</td><td class="num">145.00</td><td class="num">870.00</td></tr>
+    <tr><td>12</td><td>Hand towel, interleaved (carton)</td><td class="num">24</td><td class="num">38.50</td><td class="num">924.00</td></tr>
+    <tr><td>13</td><td>Toilet tissue 2-ply (carton)</td><td class="num">18</td><td class="num">42.00</td><td class="num">756.00</td></tr>
+    <tr><td>14</td><td>Bin liners 240L (box of 100)</td><td class="num">12</td><td class="num">27.50</td><td class="num">330.00</td></tr>
+    <tr><td>15</td><td>Sanitary disposal service &mdash; monthly</td><td class="num">6</td><td class="num">65.00</td><td class="num">390.00</td></tr>
+    <tr><td>16</td><td>Graffiti removal &mdash; Crown Street Mall</td><td class="num">2</td><td class="num">180.00</td><td class="num">360.00</td></tr>
+    <tr><td>17</td><td>Pressure wash loading dock &mdash; Kembla Street</td><td class="num">1</td><td class="num">540.00</td><td class="num">540.00</td></tr>
+    <tr><td>18</td><td>Emergency callout &mdash; 14 Aug, after hours</td><td class="num">1</td><td class="num">275.00</td><td class="num">275.00</td></tr>
+    <tr><td>19</td><td>Emergency callout &mdash; 23 Aug, after hours</td><td class="num">1</td><td class="num">275.00</td><td class="num">275.00</td></tr>
+    <tr><td>20</td><td>Waste removal &mdash; general, 3m3 skip</td><td class="num">2</td><td class="num">310.00</td><td class="num">620.00</td></tr>
+    <tr><td>21</td><td>Waste removal &mdash; cardboard recycling</td><td class="num">4</td><td class="num">85.00</td><td class="num">340.00</td></tr>
+    <tr><td>22</td><td>Site supervisor hours</td><td class="num">18</td><td class="num">68.00</td><td class="num">1,224.00</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="4" class="label">Subtotal</td><td class="num">18,149.00</td></tr>
+    <tr><td colspan="4" class="label">GST 10%</td><td class="num">1,814.90</td></tr>
+    <tr class="grand"><td colspan="4" class="label">Total due (AUD)</td><td class="num">$19,963.90</td></tr>
+  </tfoot>
+</table>
+<footer>
+  Direct deposit: BSB 062-517, Account 1088 4471. Please quote invoice 44120.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>

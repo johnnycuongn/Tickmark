@@ -1,0 +1,84 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Invoice 77201</title>
+<!--
+  Two traps, and they interact.
+  1) "09/07/2026" from a Manchester vendor is 9 July. Same shape as globex-2291, opposite reading.
+  2) Charges are split across two side-by-side blocks, so there is no single top-to-bottom
+     reading order. Reading order is exactly what a text-extraction pipeline gets wrong and
+     a multimodal model gets right — this document is the argument for not pre-OCRing.
+  Also: the discount and fuel surcharge are NOT line items, so a naive
+  sum(lineItems) != total. The Week 2 arithmetic check has to model the totals block, not
+  just add the rows up.
+-->
+<style>
+  @page { size: A4; margin: 16mm; }
+  body { font: 10pt/1.4 Arial, Helvetica, sans-serif; color: #222; }
+  header { border-bottom: 3px double #333; padding-bottom: 10px; display: flex; justify-content: space-between; }
+  .co { font-size: 16pt; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .co small { display: block; font-size: 8pt; font-weight: 400; text-transform: none;
+              letter-spacing: 0; color: #555; margin-top: 5px; line-height: 1.5; }
+  h1 { font-size: 15pt; margin: 0; letter-spacing: 3px; }
+  .meta { font-size: 9pt; margin-top: 6px; text-align: right; color: #333; }
+  .cols { display: flex; gap: 26px; margin-top: 22px; }
+  .cols section { flex: 1; }
+  .cols h2 { font-size: 8.5pt; text-transform: uppercase; letter-spacing: 1px; background: #333;
+             color: #fff; padding: 4px 7px; margin: 0 0 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  th { text-align: left; font-size: 7.5pt; text-transform: uppercase; color: #666;
+       border-bottom: 1px solid #999; padding-bottom: 4px; font-weight: 700; }
+  td { padding: 7px 0; border-bottom: 1px dotted #ccc; vertical-align: top; }
+  /* The two-column layout leaves each mini-table ~250px wide. Without explicit gutters the
+     qty/rate/amount cells butt together and render as "678.00468.00" — unreadable to a
+     human, which makes it noise rather than a test. Awkward layout is the point; illegible
+     is not. */
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap;
+         padding-left: 14px; }
+  td:first-child, th:first-child { width: 52%; padding-right: 6px; }
+  .totals { margin: 24px 0 0 auto; width: 300px; font-size: 9.5pt; }
+  .totals tr td { border: none; padding: 4px 0; }
+  .totals .label { color: #555; }
+  .totals .grand td { border-top: 2px solid #333; font-weight: 700; font-size: 12pt; padding-top: 8px; }
+  footer { margin-top: 34px; border-top: 1px solid #ccc; padding-top: 10px; font-size: 8pt; color: #666; line-height: 1.6; }
+</style>
+<header>
+  <div class="co">Atlas Freight Services Ltd
+    <small>Unit 6, Trafford Point, Twining Road<br>Manchester M17 1AB, United Kingdom<br>VAT Reg. GB 412 8837 21</small>
+  </div>
+  <div>
+    <h1>INVOICE</h1>
+    <div class="meta">
+      No. 77201<br>Date 09/07/2026<br>Account ATL-DUB-14<br>Terms 30 days
+    </div>
+  </div>
+</header>
+<div class="cols">
+  <section>
+    <h2>Freight charges</h2>
+    <table>
+      <tr><th>Service</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">GBP</th></tr>
+      <tr><td>Groupage pallet &mdash; Manchester to Dublin</td><td class="num">6</td><td class="num">78.00</td><td class="num">468.00</td></tr>
+      <tr><td>Groupage pallet &mdash; Manchester to Cork</td><td class="num">4</td><td class="num">92.00</td><td class="num">368.00</td></tr>
+    </table>
+  </section>
+  <section>
+    <h2>Ancillary charges</h2>
+    <table>
+      <tr><th>Service</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">GBP</th></tr>
+      <tr><td>Customs entry (T1 transit document)</td><td class="num">1</td><td class="num">55.00</td><td class="num">55.00</td></tr>
+      <tr><td>Pallet exchange fee</td><td class="num">10</td><td class="num">4.50</td><td class="num">45.00</td></tr>
+    </table>
+  </section>
+</div>
+<table class="totals">
+  <tr><td class="label">Subtotal</td><td class="num">936.00</td></tr>
+  <tr><td class="label">Volume discount (5%)</td><td class="num">&minus;46.80</td></tr>
+  <tr><td class="label">Fuel surcharge</td><td class="num">62.00</td></tr>
+  <tr><td class="label">Net</td><td class="num">951.20</td></tr>
+  <tr><td class="label">VAT @ 20%</td><td class="num">190.24</td></tr>
+  <tr class="grand"><td>Total due</td><td class="num">&pound;1,141.44</td></tr>
+</table>
+<footer>
+  Payment to Barclays, sort code 20-55-41, account 7188 0392. Goods carried under BIFA standard trading conditions.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>

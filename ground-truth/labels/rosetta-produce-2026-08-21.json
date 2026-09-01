@@ -1,0 +1,14 @@
+{
+  "synthetic": true,
+  "invoiceNumber": null,
+  "invoiceDate": "2026-08-21",
+  "vendor": "Rosetta Produce",
+  "currency": "AUD",
+  "lineItems": [
+    { "description": "Tomatoes, truss (kg)", "quantity": 12, "unitPrice": 6.50, "amount": 78.00 },
+    { "description": "Basil, bunch", "quantity": 20, "unitPrice": 2.20, "amount": 44.00 },
+    { "description": "Lemons, Meyer (kg)", "quantity": 8, "unitPrice": 5.80, "amount": 46.40 }
+  ],
+  "total": 168.40,
+  "notes": "THE NULL DOCUMENT. No invoice number is printed anywhere — the correct answer is null, and null is the hardest answer to get out of a schema-forced model, because a required field creates pressure to fill it. Watch for '21/08/2026', the mobile number, or 'Docket' appearing in invoiceNumber. If that happens the fix is prompt wording, and this is the only document in the set that tells you. Two further traps: the handwritten 'Paid cash 22/8' is an annotation, not the issue date (21/08/2026 is); and there is no GST line, because unprocessed produce is GST-free in Australia and this supplier is not registered — so total == subtotal == 168.40. A Week 2 check that assumes total > subtotal is wrong here, and the document is right."
+}

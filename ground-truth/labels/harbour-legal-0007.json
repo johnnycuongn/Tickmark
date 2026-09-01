@@ -1,0 +1,10 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "HF-0007",
+  "invoiceDate": "2026-08-03",
+  "vendor": "Harbour & Fell Legal",
+  "currency": "AUD",
+  "lineItems": [],
+  "total": 4620.00,
+  "notes": "Empty-array document. There is no item table at all — the work is described in a narrative paragraph and billed as one figure. Correct label is [] (\"the document itemises nothing\"), never null (\"no such field exists\"). Watch for the model inventing a single line item, e.g. {Professional legal services, qty 1, 4200.00}: that is structurally plausible, will come back with high confidence, and is a hallucination — the number 4200.00 is nowhere on the page. Also exercises the ampersand rule: vendor is 'Harbour & Fell Legal', not 'Harbour and Fell Legal', and the ALL-CAPS letterhead is title-cased. GST of 420.00 is stated but there is no subtotal row, so the Week 2 check has only total and stated GST to work with."
+}

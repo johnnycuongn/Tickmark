@@ -1,0 +1,143 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "44120",
+  "invoiceDate": "2026-08-31",
+  "vendor": "Citywide Facilities Management Pty Ltd",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Nightly clean — Site 01, Crown Street Mall",
+      "quantity": 22.0,
+      "unitPrice": 145.0,
+      "amount": 3190.0
+    },
+    {
+      "description": "Nightly clean — Site 02, Kembla Street depot",
+      "quantity": 22.0,
+      "unitPrice": 96.0,
+      "amount": 2112.0
+    },
+    {
+      "description": "Scheduled clean 3x weekly — Site 03, Fairy Meadow office",
+      "quantity": 13.0,
+      "unitPrice": 88.0,
+      "amount": 1144.0
+    },
+    {
+      "description": "Scheduled clean 3x weekly — Site 04, Corrimal branch",
+      "quantity": 13.0,
+      "unitPrice": 88.0,
+      "amount": 1144.0
+    },
+    {
+      "description": "Weekly clean — Site 05, Thirroul branch",
+      "quantity": 4.0,
+      "unitPrice": 120.0,
+      "amount": 480.0
+    },
+    {
+      "description": "Weekly clean — Site 06, Dapto depot",
+      "quantity": 4.0,
+      "unitPrice": 120.0,
+      "amount": 480.0
+    },
+    {
+      "description": "Window cleaning, external — Crown Street Mall",
+      "quantity": 1.0,
+      "unitPrice": 640.0,
+      "amount": 640.0
+    },
+    {
+      "description": "Window cleaning, external — Kembla Street depot",
+      "quantity": 1.0,
+      "unitPrice": 385.0,
+      "amount": 385.0
+    },
+    {
+      "description": "Carpet steam clean — Level 2, Fairy Meadow",
+      "quantity": 1.0,
+      "unitPrice": 720.0,
+      "amount": 720.0
+    },
+    {
+      "description": "Hard floor strip and seal — Corrimal branch",
+      "quantity": 1.0,
+      "unitPrice": 950.0,
+      "amount": 950.0
+    },
+    {
+      "description": "Washroom consumables restock — all sites",
+      "quantity": 6.0,
+      "unitPrice": 145.0,
+      "amount": 870.0
+    },
+    {
+      "description": "Hand towel, interleaved (carton)",
+      "quantity": 24.0,
+      "unitPrice": 38.5,
+      "amount": 924.0
+    },
+    {
+      "description": "Toilet tissue 2-ply (carton)",
+      "quantity": 18.0,
+      "unitPrice": 42.0,
+      "amount": 756.0
+    },
+    {
+      "description": "Bin liners 240L (box of 100)",
+      "quantity": 12.0,
+      "unitPrice": 27.5,
+      "amount": 330.0
+    },
+    {
+      "description": "Sanitary disposal service — monthly",
+      "quantity": 6.0,
+      "unitPrice": 65.0,
+      "amount": 390.0
+    },
+    {
+      "description": "Graffiti removal — Crown Street Mall",
+      "quantity": 2.0,
+      "unitPrice": 180.0,
+      "amount": 360.0
+    },
+    {
+      "description": "Pressure wash loading dock — Kembla Street",
+      "quantity": 1.0,
+      "unitPrice": 540.0,
+      "amount": 540.0
+    },
+    {
+      "description": "Emergency callout — 14 Aug, after hours",
+      "quantity": 1.0,
+      "unitPrice": 275.0,
+      "amount": 275.0
+    },
+    {
+      "description": "Emergency callout — 23 Aug, after hours",
+      "quantity": 1.0,
+      "unitPrice": 275.0,
+      "amount": 275.0
+    },
+    {
+      "description": "Waste removal — general, 3m3 skip",
+      "quantity": 2.0,
+      "unitPrice": 310.0,
+      "amount": 620.0
+    },
+    {
+      "description": "Waste removal — cardboard recycling",
+      "quantity": 4.0,
+      "unitPrice": 85.0,
+      "amount": 340.0
+    },
+    {
+      "description": "Site supervisor hours",
+      "quantity": 18.0,
+      "unitPrice": 68.0,
+      "amount": 1224.0
+    }
+  ],
+  "total": 19963.9,
+  "notes": "TRUNCATION DOCUMENT. 22 line items spilling onto a second page. A model that gives up part-way returns 8 or 12 items, every one of them correct and confidently reported, and a single blended accuracy number barely moves — you lose two thirds of the rows and the headline metric shrugs. That is the concrete reason the eval reports recall on lineItems as its own row rather than folding it into one score. The arithmetic check is the loud signal here: 12 items do not sum to 18,149.00. Rows and totals in both the fixture HTML and this label were generated from one source table and each row verified against quantity x unitPrice, so a hand-transcription error cannot hide in 22 rows. Every row is internally consistent; the defect document is pinnacle-8817, not this one. Subtotal 18,149.00 + 10% GST 1,814.90 = 19,963.90."
+}

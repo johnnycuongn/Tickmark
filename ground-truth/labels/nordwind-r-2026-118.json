@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "R-2026-118",
+  "invoiceDate": "2026-08-14",
+  "vendor": "Nordwind Logistik GmbH",
+  "currency": "EUR",
+  "lineItems": [
+    { "description": "Seefracht Container 40ft (Hamburg – Rotterdam)", "quantity": 2, "unitPrice": 1240.00, "amount": 2480.00 },
+    { "description": "Zollabfertigung und Dokumentation", "quantity": 1, "unitPrice": 385.50, "amount": 385.50 }
+  ],
+  "total": 3409.95,
+  "notes": "German-language invoice with European number formatting: '.' groups thousands and ',' is the decimal point, so the printed '2.480,00' is 2480.00 and '3.409,95 €' is 3409.95. A model that applies US conventions returns 2.48 or 248000 — both of which the numeric schema will accept without complaint, so this failure is invisible unless the eval catches it. Date is DD.MM.YYYY. Descriptions are labelled verbatim in German, not translated: the convention says as printed. Currency EUR comes from the € glyph and the German address. Arithmetic consistent: 2480.00 + 385.50 = 2865.50, + 19% = 3409.95."
+}

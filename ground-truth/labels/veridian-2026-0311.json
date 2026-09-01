@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "VS-2026-0311",
+  "invoiceDate": "2026-08-31",
+  "vendor": "Veridian Systems Inc",
+  "currency": "USD",
+  "lineItems": [
+    { "description": "Enterprise license — 120 seats, annual term", "quantity": 120, "unitPrice": 96.00, "amount": 11520.00 },
+    { "description": "Implementation services (hours)", "quantity": 40, "unitPrice": 175.00, "amount": 7000.00 },
+    { "description": "Data migration — legacy ERP extract", "quantity": 1, "unitPrice": 4800.00, "amount": 4800.00 },
+    { "description": "Loyalty credit — 2025 renewal", "quantity": 1, "unitPrice": -1250.00, "amount": -1250.00 }
+  ],
+  "total": 23890.78,
+  "notes": "Thousands separators on five-figure amounts: '11,520.00' must land as 11520, not 1152000 or 11.52. The negative 'Loyalty credit' line is INCLUDED as a line item because it is printed inside the item table with its own quantity and unit price — see the 'Credits and discounts' rule in LABELING.md, which was added for this document. Contrast atlas-freight-77201, where the discount sits in the totals block and is excluded. The date is spelled out ('August 31, 2026'), so this is the control against the two separator-ambiguous dates; the Due Date of September 30 must not be taken instead. Arithmetic consistent: 11520 + 7000 + 4800 − 1250 = 22070.00, + 8.25% = 23890.78."
+}

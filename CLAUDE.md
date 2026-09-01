@@ -5,12 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Status: Week 1 scaffolded (2026-08-29)
 
 **Exists:** `package.json`, `tsconfig.json`, `.nvmrc` (22.12.0), the extraction schema, the model adapter seam,
-a Gemini adapter, a CLI, 7 passing schema tests, and `ground-truth/LABELING.md`.
-**Does not exist yet:** any labelled documents, scoring, Postgres, review UI, eval harness. Sections below marked
-"planned" are still design intent. Replace them with what's real as you build.
+a Gemini adapter, a CLI, 7 passing schema tests, `ground-truth/LABELING.md`, and **9 synthetic fixtures with
+labels** (`ground-truth/fixtures/`, built with `npm run fixtures`, verified with `npm run fixtures:check`).
+**Does not exist yet:** any *real* labelled documents, scoring, Postgres, review UI, eval harness. Sections below
+marked "planned" are still design intent. Replace them with what's real as you build.
 
-**Next action:** collect and label 15–20 documents per `ground-truth/LABELING.md`. Nothing downstream can be
-measured until that set exists, so it is the bottleneck, not the code.
+**Next action:** collect and label 15–20 **real** documents per `ground-truth/LABELING.md`. The synthetic fixtures
+are a smoke-test corpus, not an eval set — every one of their labels carries `"synthetic": true` precisely so the
+eval harness can exclude them. We wrote those documents, so a score on them measures our imagination, not the
+model. Real documents are still the bottleneck, and still not the code.
 
 Toolchain note: Node is installed and on PATH as of 2026-08-29 — **node v20.19.6, npm 10.8.2**, owned by nvm
 (`~/.nvm`, default alias `20.19.6`). Also installed: 20.11.0, 22.12.0, 24.15.0. Docker is at `/usr/local/bin/docker`.
@@ -138,6 +141,8 @@ Run `nvm use` first in any new shell — otherwise you are on 20.19.6 and `engin
 
 ```bash
 npm install
+npm run fixtures                                     # render synthetic fixture HTML -> ground-truth/docs/*.pdf
+npm run fixtures:check                               # assert every label still matches its fixture
 npm run extract -- ground-truth/docs/acme-0042.pdf   # one document -> JSON on stdout, stats on stderr
 npm run typecheck                                    # tsc --noEmit
 npm test                                             # vitest run (all)

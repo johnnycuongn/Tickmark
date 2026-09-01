@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tax Invoice HF-0007</title>
+<!--
+  There is no line item table on this document, on purpose. Professional services
+  invoices frequently bill a narrative and a single number.
+  The correct label is lineItems: [] — an empty array, not null. The distinction is the
+  whole reason the schema is .nullable() rather than optional: [] means "I looked, the
+  document itemises nothing"; null would mean "no itemisation field exists", which is a
+  different claim. A model that invents a single synthetic line item here ("Professional
+  services, qty 1, 4200.00") is hallucinating structure that isn't on the page — and it
+  will do it confidently, which is why this document belongs in the set.
+
+  Secondary check: vendor is "Harbour & Fell Legal" — the ampersand is kept per the
+  labelling convention, not expanded to "and".
+-->
+<style>
+  @page { size: A4; margin: 22mm; }
+  body { font: 11pt/1.6 Garamond, "EB Garamond", Georgia, serif; color: #1b1b1b; }
+  header { text-align: center; border-bottom: 1px solid #8a7a5c; padding-bottom: 14px; }
+  .co { font-size: 19pt; letter-spacing: 3px; color: #4a3f28; }
+  .co small { display: block; font-size: 8.5pt; letter-spacing: 1px; color: #7a6a4c; margin-top: 7px; }
+  h1 { font-size: 10pt; letter-spacing: 5px; text-align: center; margin: 26px 0 22px; color: #4a3f28; }
+  .meta { display: flex; justify-content: space-between; font-size: 10pt; margin-bottom: 26px; }
+  .meta b { font-weight: 400; color: #6a6a6a; }
+  .narrative { font-size: 10.5pt; text-align: justify; margin-bottom: 30px; }
+  .amount { margin-left: auto; width: 380px; white-space: nowrap; gap: 30px; border-top: 1px solid #8a7a5c; border-bottom: 3px double #8a7a5c;
+            padding: 12px 0; display: flex; justify-content: space-between; font-size: 13pt; font-weight: 700; }
+  .gstnote { text-align: right; font-size: 9pt; color: #666; margin-top: 6px; }
+  footer { margin-top: 46px; font-size: 8.5pt; color: #666; line-height: 1.7; border-top: 1px solid #ddd; padding-top: 12px; }
+</style>
+<header>
+  <div class="co">HARBOUR &amp; FELL LEGAL
+    <small>SOLICITORS &middot; LEVEL 12, 1 CASTLEREAGH STREET, SYDNEY NSW 2000 &middot; ABN 33 902 118 447</small>
+  </div>
+</header>
+<h1>T A X &nbsp; I N V O I C E</h1>
+<div class="meta">
+  <div><b>To</b><br>Meridian Property Holdings Pty Ltd<br>Level 3, 210 Clarence Street<br>Sydney NSW 2000</div>
+  <div style="text-align:right"><b>Invoice No.</b> HF-0007<br><b>Date</b> 3 August 2026<br><b>Matter</b> 26-0418<br><b>Terms</b> Payable on receipt</div>
+</div>
+<div class="narrative">
+  Professional legal services rendered in connection with the negotiation and settlement of the
+  commercial lease over Suite 4, 88 Meridian Way, for the period 1 July 2026 to 31 July 2026,
+  including review of the landlord&rsquo;s draft lease and disclosure statement, correspondence with
+  the lessor&rsquo;s solicitors, three rounds of amendment to the incentive deed, attendance at the
+  settlement conference of 24 July 2026, and registration of the lease with NSW Land Registry
+  Services, together with all associated disbursements.
+</div>
+<div class="amount"><span>Amount due (incl. GST)</span><span>$4,620.00</span></div>
+<div class="gstnote">Includes GST of $420.00</div>
+<footer>
+  Payment to Harbour &amp; Fell Legal Trust Account, BSB 032-002, Account 4471 0093.<br>
+  Liability limited by a scheme approved under Professional Standards Legislation.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>

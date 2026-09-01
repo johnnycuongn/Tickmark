@@ -1,0 +1,14 @@
+{
+  "synthetic": true,
+  "invoiceNumber": "8817",
+  "invoiceDate": "2026-08-12",
+  "vendor": "Pinnacle Fabrication Pty Ltd",
+  "currency": "AUD",
+  "lineItems": [
+    { "description": "Laser cut mild steel bracket, 6mm", "quantity": 40, "unitPrice": 12.50, "amount": 512.00 },
+    { "description": "Powder coat, gloss black", "quantity": 40, "unitPrice": 3.20, "amount": 128.00 },
+    { "description": "Setup / programming fee", "quantity": 1, "unitPrice": 95.00, "amount": 95.00 }
+  ],
+  "total": 808.50,
+  "notes": "THE ARITHMETIC DEFECT DOCUMENT. Line 1 prints amount 512.00, but 40 × 12.50 = 500.00. The 12.00 error then propagates: the printed subtotal 735.00 is the sum of the printed amounts, and GST and total follow it, so the invoice is internally consistent everywhere except that one multiplication. That is what a real keying error looks like. The label records 512.00 because the convention says record what is printed — do NOT correct it. This is the most valuable row in the set: a model can read every character correctly, self-report 0.98 confidence, and still be handing you a document that is wrong about the world. The only signal that catches it is the qty × unitPrice cross-check, which is the entire argument for keeping computed confidence separate from self-reported confidence."
+}

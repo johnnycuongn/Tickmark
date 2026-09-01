@@ -1,0 +1,65 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Tax Invoice 8817</title>
+<!--
+  THE POINT OF THIS DOCUMENT: line 1 prints 512.00, but 40 x 12.50 = 500.00.
+  The subtotal (735.00) follows the *printed* amount, so the invoice is internally
+  consistent top-to-bottom and only the per-line multiplication is wrong. That is what a
+  real keying error looks like — it propagates.
+
+  The label records 512.00, because the labelling convention says record what is printed.
+  Do not "fix" it. This is the single most valuable document in the set: it is the one
+  where a model reporting confidence 0.98 is still wrong about the world, and the only
+  signal that catches it is the arithmetic cross-check.
+-->
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font: 10.5pt/1.45 "Courier New", Courier, monospace; color: #1c1c1c; }
+  header { text-align: center; border: 2px solid #1c1c1c; padding: 12px; }
+  .co { font-size: 15pt; font-weight: 700; letter-spacing: 1px; }
+  .co small { display: block; font-size: 8.5pt; font-weight: 400; letter-spacing: 0; margin-top: 5px; line-height: 1.5; }
+  h1 { font-size: 12pt; letter-spacing: 4px; margin: 18px 0 10px; text-align: center; }
+  .meta { display: flex; justify-content: space-between; font-size: 9.5pt; margin-bottom: 18px; }
+  .meta div { line-height: 1.7; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  thead th { border-top: 1px solid #1c1c1c; border-bottom: 1px solid #1c1c1c;
+             text-align: left; padding: 6px 4px; font-size: 8.5pt; letter-spacing: .5px; }
+  tbody td { padding: 8px 4px; border-bottom: 1px dashed #bbb; }
+  .num { text-align: right; white-space: nowrap; }
+  tfoot td { padding: 5px 4px; }
+  tfoot .label { text-align: right; }
+  tfoot .grand td { border-top: 1px solid #1c1c1c; border-bottom: 3px double #1c1c1c; font-weight: 700; padding: 8px 4px; }
+  footer { margin-top: 30px; font-size: 8.5pt; line-height: 1.6; }
+</style>
+<header>
+  <div class="co">PINNACLE FABRICATION PTY LTD
+    <small>27 Ordnance Road, Wetherill Park NSW 2164<br>ABN 68 447 210 883 &nbsp;|&nbsp; Ph (02) 9756 4410</small>
+  </div>
+</header>
+<h1>T A X &nbsp; I N V O I C E</h1>
+<div class="meta">
+  <div>
+    <b>To:</b><br>Meridian Shopfitting Pty Ltd<br>14 Bessemer Street<br>Blacktown NSW 2148
+  </div>
+  <div>
+    Invoice No.: 8817<br>Issue date: 12 August 2026<br>Job No.: J-4471<br>Terms: 30 days from EOM
+  </div>
+</div>
+<table>
+  <thead><tr><th>Description</th><th class="num">Qty</th><th class="num">Unit $</th><th class="num">Amount $</th></tr></thead>
+  <tbody>
+    <tr><td>Laser cut mild steel bracket, 6mm</td><td class="num">40</td><td class="num">12.50</td><td class="num">512.00</td></tr>
+    <tr><td>Powder coat, gloss black</td><td class="num">40</td><td class="num">3.20</td><td class="num">128.00</td></tr>
+    <tr><td>Setup / programming fee</td><td class="num">1</td><td class="num">95.00</td><td class="num">95.00</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3" class="label">Subtotal</td><td class="num">735.00</td></tr>
+    <tr><td colspan="3" class="label">GST 10%</td><td class="num">73.50</td></tr>
+    <tr class="grand"><td colspan="3" class="label">TOTAL DUE (AUD)</td><td class="num">808.50</td></tr>
+  </tfoot>
+</table>
+<footer>
+  Direct deposit: BSB 062-199 Acct 1044 7728. Please quote invoice 8817.<br>
+  Goods remain the property of Pinnacle Fabrication Pty Ltd until paid in full.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>

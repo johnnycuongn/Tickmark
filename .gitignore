@@ -7,5 +7,6 @@ dist/
 # See ground-truth/LABELING.md for how to share the corpus.
 ground-truth/docs/*
 !ground-truth/docs/.gitkeep
-# Synthetic fixtures are ours and contain no PII — keep them.
-!ground-truth/docs/acme-*.pdf
+# Synthetic fixture PDFs are NOT committed either — they are build output, rebuilt from
+# ground-truth/fixtures/*.html with `npm run fixtures`. A committed binary can silently
+# disagree with the source it was generated from; a one-command rebuild cannot.

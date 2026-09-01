@@ -1,0 +1,53 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Delivery docket — Rosetta Produce</title>
+<!--
+  THE POINT: there is no invoice number anywhere on this document. The correct label is
+  invoiceNumber: null.
+  Small suppliers really do issue dockets like this, and null is the hardest answer for a
+  model to give — a schema-forced field creates pressure to put *something* in it. Watch
+  for it grabbing "21/08/2026", the phone number, or "Docket" itself. If the model
+  hallucinates here, the fix is prompt wording, and this is the document that tells you.
+
+  Two more things to resist:
+  - the handwritten "PAID CASH 22/8" must not become invoiceDate (issue date is 21/08/2026)
+  - no GST line: unprocessed produce is GST-free in Australia, so total == subtotal.
+    A confidence check that assumes "total > subtotal" is wrong, not the document.
+-->
+<style>
+  @page { size: A5 landscape; margin: 12mm; }
+  body { font: 10pt/1.5 "Courier New", monospace; color: #222; position: relative; }
+  .co { font-size: 14pt; font-weight: 700; letter-spacing: 2px; }
+  .co small { display: block; font-size: 8pt; font-weight: 400; letter-spacing: 0; color: #555; margin-top: 4px; line-height: 1.5; }
+  h1 { font-size: 9pt; letter-spacing: 3px; margin: 14px 0 8px; border-top: 1px dashed #555; border-bottom: 1px dashed #555; padding: 5px 0; }
+  .meta { font-size: 9pt; display: flex; justify-content: space-between; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  th { text-align: left; font-size: 8pt; border-bottom: 1px solid #555; padding-bottom: 3px; }
+  td { padding: 6px 0; border-bottom: 1px dotted #ccc; }
+  .num { text-align: right; white-space: nowrap; }
+  .grand { border-top: 1px solid #222; font-weight: 700; font-size: 11pt; }
+  .grand td { padding-top: 8px; border-bottom: none; }
+  /* In flow, below the footer. An earlier version floated this over the total and covered
+     the figure — which makes the ground-truth label undefendable, because a human labeller
+     cannot read it either. The trap here is the stray date "22/8", not occlusion. */
+  .hand { display: inline-block; margin: 22px 0 0 30px; transform: rotate(-4deg);
+          font-family: "Snell Roundhand", "Bradley Hand", cursive; font-size: 17pt; color: #1a3f8f; }
+  footer { margin-top: 16px; font-size: 8pt; color: #666; }
+</style>
+<div class="co">ROSETTA PRODUCE
+  <small>Stall 21, Flemington Markets, Homebush West NSW 2140<br>Mob 0412 887 331 &nbsp;|&nbsp; Not registered for GST</small>
+</div>
+<h1>D E L I V E R Y &nbsp; D O C K E T</h1>
+<div class="meta">
+  <div>Delivered to: Meridian Kitchen, 88 Enmore Rd, Newtown</div>
+  <div>Date: 21/08/2026</div>
+</div>
+<table>
+  <tr><th>Item</th><th class="num">Qty</th><th class="num">Unit</th><th class="num">Amount</th></tr>
+  <tr><td>Tomatoes, truss (kg)</td><td class="num">12</td><td class="num">6.50</td><td class="num">78.00</td></tr>
+  <tr><td>Basil, bunch</td><td class="num">20</td><td class="num">2.20</td><td class="num">44.00</td></tr>
+  <tr><td>Lemons, Meyer (kg)</td><td class="num">8</td><td class="num">5.80</td><td class="num">46.40</td></tr>
+  <tr class="grand"><td colspan="3">TOTAL</td><td class="num">$168.40</td></tr>
+</table>
+<footer>Goods checked on delivery. Synthetic test fixture &mdash; no real entity is represented.</footer>
+<div class="hand">Paid cash 22/8 &mdash; J.N.</div>

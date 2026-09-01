@@ -1,0 +1,66 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Invoice GLX-2291</title>
+<!--
+  TRAP: "Date 03/04/2026" on a New Jersey invoice is 4 March, not 3 April.
+  Pairs deliberately with atlas-freight-77201.html, which prints the same DD/MM-vs-MM/DD
+  shape and resolves the other way. One document can't teach a locale rule; two can.
+-->
+<style>
+  @page { size: Letter; margin: 16mm; }
+  body { font: 10.5pt/1.45 "Segoe UI", Roboto, Arial, sans-serif; color: #202020; }
+  .rule { height: 6px; background: #14539a; }
+  header { display: flex; justify-content: space-between; margin-top: 22px; }
+  .co { font-size: 17pt; font-weight: 600; color: #14539a; }
+  .co small { display: block; font-size: 8.5pt; font-weight: 400; color: #555; margin-top: 5px; line-height: 1.5; }
+  h1 { font-size: 26pt; margin: 0 0 8px; font-weight: 200; color: #14539a; letter-spacing: 1px; }
+  .meta { font-size: 9.5pt; text-align: right; }
+  .meta div { margin-top: 3px; }
+  .meta b { color: #666; font-weight: 400; display: inline-block; min-width: 76px; }
+  .to { margin: 26px 0 18px; font-size: 10pt; }
+  .to h2 { font-size: 8pt; text-transform: uppercase; letter-spacing: 1.2px; color: #14539a; margin: 0 0 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 10pt; }
+  thead th { background: #eef3f9; text-align: left; padding: 7px 8px; font-size: 8.5pt;
+             text-transform: uppercase; letter-spacing: .8px; color: #14539a; }
+  tbody td { padding: 9px 8px; border-bottom: 1px solid #e4e4e4; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td { padding: 5px 8px; font-variant-numeric: tabular-nums; }
+  tfoot .label { text-align: right; color: #555; }
+  tfoot .grand td { border-top: 2px solid #14539a; font-weight: 700; font-size: 11.5pt; padding-top: 9px; }
+  footer { margin-top: 30px; font-size: 8.5pt; color: #666; line-height: 1.6; }
+</style>
+<div class="rule"></div>
+<header>
+  <div class="co">Globex Corporation
+    <small>1200 Harbor Boulevard, Suite 410<br>Newark, NJ 07102<br>EIN 42-1837294</small>
+  </div>
+  <div>
+    <h1>INVOICE</h1>
+    <div class="meta">
+      <div><b>Invoice #</b> GLX-2291</div>
+      <div><b>Date</b> 03/04/2026</div>
+      <div><b>Terms</b> Net 15</div>
+      <div><b>PO</b> 7741-B</div>
+    </div>
+  </div>
+</header>
+<div class="to">
+  <h2>Bill to</h2>
+  Initech LLC<br>3400 Silverado Drive<br>Austin, TX 78735
+</div>
+<table>
+  <thead><tr><th>Description</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr></thead>
+  <tbody>
+    <tr><td>Cloud infrastructure &mdash; March allotment</td><td class="num">1</td><td class="num">2,400.00</td><td class="num">2,400.00</td></tr>
+    <tr><td>Support hours (senior tier)</td><td class="num">6</td><td class="num">185.00</td><td class="num">1,110.00</td></tr>
+  </tbody>
+  <tfoot>
+    <tr><td colspan="3" class="label">Subtotal</td><td class="num">3,510.00</td></tr>
+    <tr><td colspan="3" class="label">Sales tax (6.625%)</td><td class="num">232.54</td></tr>
+    <tr class="grand"><td colspan="3" class="label">Total due (USD)</td><td class="num">$3,742.54</td></tr>
+  </tfoot>
+</table>
+<footer>
+  Remit by ACH to routing 021000021, account 4471 88 2019. Late payments accrue 1.5% monthly.<br>
+  Synthetic test fixture &mdash; no real entity is represented.
+</footer>
