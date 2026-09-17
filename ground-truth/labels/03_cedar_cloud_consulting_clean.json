@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "SAMPLE-CCC-0926",
+  "invoiceDate": "2026-09-01",
+  "vendor": "Cedar Cloud Consulting",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Data pipeline review",
+      "quantity": 8,
+      "unitPrice": null,
+      "amount": 1360.0
+    },
+    {
+      "description": "Cost optimisation workshop",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 850.0
+    },
+    {
+      "description": "Implementation notes",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 290.0
+    }
+  ],
+  "total": 2750.0,
+  "notes": "Clean digital PDF (baseline). Synthetic, per footer. Same template as 01/02. Traps: (1) invoice number has a leading zero in its numeric part ('0926') that must be preserved as a string; (2) Australian spelling 'optimisation' in a description -- a strict-match check will catch a model that autocorrects to 'optimization'; (3) Due date 15 Sep 2026 must NOT be taken as invoiceDate; (4) no unit-price column, so unitPrice is null. Arithmetic is consistent: 1360.00 + 850.00 + 290.00 = 2500.00 subtotal, +10% GST 250.00 = 2750.00."
+}

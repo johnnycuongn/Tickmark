@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "SAMPLE-NWE-1047",
+  "invoiceDate": "2026-08-29",
+  "vendor": "Northwind Electrical Services",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Safety inspection and testing",
+      "quantity": 2.5,
+      "unitPrice": null,
+      "amount": 287.5
+    },
+    {
+      "description": "Replace LED downlights",
+      "quantity": 8,
+      "unitPrice": null,
+      "amount": 392.0
+    },
+    {
+      "description": "Call-out and travel",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 95.0
+    }
+  ],
+  "total": 851.95,
+  "notes": "Clean digital PDF (baseline). Synthetic, per footer. Same template as 01/03. Interesting for: (1) a fractional quantity '2.5 hrs' -- checks the model returns 2.5 not 2 or 25; (2) the third row's quantity is a bare '1' with no unit word; (3) Due date 12 Sep 2026 must NOT be taken as invoiceDate; (4) no unit-price column, so unitPrice is null. Arithmetic is consistent: 287.50 + 392.00 + 95.00 = 774.50 subtotal, +10% GST 77.45 = 851.95."
+}

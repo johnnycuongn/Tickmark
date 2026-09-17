@@ -51,13 +51,24 @@ if you cannot resolve it, **exclude the document from the set** rather than gues
 wrong date label silently caps your date recall forever.
 Use the *issue* date, never the due date or the paid date.
 
-**vendor** — the legal entity being paid. Rules, in order:
+**vendor** — the legal entity being paid, **transcribed exactly as printed**.
+
 1. Prefer the entity name near the ABN/tax number over the logo wordmark.
-2. Keep the suffix as printed (`Pty Ltd`, `Ltd`, `Inc`, `GmbH`) but drop trailing periods:
-   `Acme Pty Ltd`, not `Acme Pty. Ltd.`
-3. Keep internal punctuation and `&`: `Smith & Sons`.
-4. Title case as printed, except ALL-CAPS letterheads, which become Title Case.
-   `ACME PTY LTD` → `Acme Pty Ltd`.
+2. Everything else is verbatim: casing, punctuation, `&` vs `and`, entity suffix.
+   An ALL-CAPS letterhead is labelled `ACME PTY LTD`, not `Acme Pty Ltd`.
+
+**Do not tidy this field.** An earlier version of this document said to title-case
+ALL-CAPS letterheads, and it caused the first bug this project ever had: the prompt tells
+the model to transcribe as printed, the convention told the labeller to normalise, and the
+first live run scored vendor as a miss when both sides were behaving correctly.
+
+Normalisation now lives in `src/normalize.ts` and is applied to *both* sides at comparison
+time, never baked into either. That keeps the printed form recoverable and makes the
+normalisation rules a tunable knob with their own unit tests, instead of a permanent edit
+you cannot walk back. Same reasoning as raw-vs-corrected columns in the database: never
+destroy the input.
+
+This applies to every field. **Label what the document says, not what it ought to say.**
 
 **currency** — ISO 4217, uppercase: `AUD`, `USD`, `EUR`. A bare `$` on an Australian
 invoice is `AUD`. If the document shows no currency anywhere and the vendor's country is
@@ -79,6 +90,11 @@ unknown, use `null`.
   **record what is printed** and mention it in `notes`. That disagreement is a real
   document defect and one of the most valuable rows in the whole set.
 - If the invoice has no itemisation at all, use `[]` — not `null`.
+- `unitPrice` is `null` when the document prints no unit-price column. Many invoices
+  show only a `QTY / UNIT` column (`6 hrs`, `24 guests`) and an amount. Do **not** derive
+  `amount ÷ quantity` and label it — that is not what the document says, and it would make
+  the Week 2 `quantity × unitPrice = amount` check pass by construction, telling you nothing.
+  When the quantity is printed with a unit word, `quantity` is the leading number only.
 
 **total** — grand total payable including tax, as a number. No currency symbol, no
 thousands separators. `1234.50`, not `"$1,234.50"`.

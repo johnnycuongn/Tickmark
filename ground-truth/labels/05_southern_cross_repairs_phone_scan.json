@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "SAMPLE-SCB-7724",
+  "invoiceDate": "2026-09-07",
+  "vendor": "Southern Cross Bicycle Repairs",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Fleet safety service",
+      "quantity": 4,
+      "unitPrice": null,
+      "amount": 420.0
+    },
+    {
+      "description": "Brake pad sets",
+      "quantity": 4,
+      "unitPrice": null,
+      "amount": 152.0
+    },
+    {
+      "description": "Drivetrain cleaning",
+      "quantity": 4,
+      "unitPrice": null,
+      "amount": 132.0
+    }
+  ],
+  "total": 774.4,
+  "notes": "Phone photo of a printed page, rasterised (no text layer). Synthetic, per footer. Degradation: page rotated a few degrees anticlockwise (opposite direction to 04), grey background, drop shadow, soft text. Pair with 04 when reading confidence: two scans of the same template with opposite skew. Traps: all three quantities are 4 with different unit words ('bicycles', 'sets', 'units'); Due date 14 Sep 2026 is not the invoiceDate; Subtotal/GST are not line items; watermark crosses the table; no unit-price column so unitPrice is null. Vendor name is four words, longest in the set. Arithmetic is consistent: 420.00 + 152.00 + 132.00 = 704.00 subtotal, +10% GST 70.40 = 774.40."
+}

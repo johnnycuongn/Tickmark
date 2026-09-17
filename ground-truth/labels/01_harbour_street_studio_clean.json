@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "SAMPLE-HSS-26018",
+  "invoiceDate": "2026-09-04",
+  "vendor": "Harbour Street Studio",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Packaging concept development",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 1450.0
+    },
+    {
+      "description": "Production artwork",
+      "quantity": 6,
+      "unitPrice": null,
+      "amount": 720.0
+    },
+    {
+      "description": "Print-ready asset delivery",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 180.0
+    }
+  ],
+  "total": 2585.0,
+  "notes": "Clean digital PDF (baseline). Synthetic, per footer. Traps: (1) a Due date 18 Sep 2026 that must NOT be taken as invoiceDate; (2) Subtotal/GST rows that are NOT line items; (3) a diagonal 'SAMPLE - NOT VALID' watermark across the line-item table; (4) no unit-price column -- the QTY / UNIT column carries a quantity with a unit word ('1 project', '6 hrs', '1 pack'), so unitPrice is null per convention and quantity is the leading number. Vendor taken from the FROM block; no ABN printed. Date format 'D Mon YYYY' is unambiguous. Arithmetic is consistent: 1450.00 + 720.00 + 180.00 = 2350.00 subtotal, +10% GST 235.00 = 2585.00."
+}

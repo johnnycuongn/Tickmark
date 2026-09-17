@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "SAMPLE-PCC-5812",
+  "invoiceDate": "2026-08-22",
+  "vendor": "Paperbark Corner Cafe",
+  "currency": "AUD",
+  "lineItems": [
+    {
+      "description": "Morning tea catering",
+      "quantity": 24,
+      "unitPrice": null,
+      "amount": 432.0
+    },
+    {
+      "description": "Coffee station",
+      "quantity": 3,
+      "unitPrice": null,
+      "amount": 255.0
+    },
+    {
+      "description": "Delivery and setup",
+      "quantity": 1,
+      "unitPrice": null,
+      "amount": 48.0
+    }
+  ],
+  "total": 808.5,
+  "notes": "Phone photo of a printed page, rasterised (no text layer). Synthetic, per footer. Degradation: page is rotated a few degrees clockwise, sits on a grey background with a drop shadow, and the text is slightly soft -- this is one of the documents where self-reported confidence SHOULD drop below 1.0; if it does not, the self-report carries no information. Same field traps as the clean set: Due date 5 Sep 2026 is not the invoiceDate, Subtotal/GST are not line items, watermark crosses the table, no unit-price column so unitPrice is null. Quantity '24 guests' is the largest quantity in the set so far. Arithmetic is consistent: 432.00 + 255.00 + 48.00 = 735.00 subtotal, +10% GST 73.50 = 808.50."
+}

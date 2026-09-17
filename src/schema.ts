@@ -42,7 +42,7 @@ const field = <T extends z.ZodTypeAny>(value: T, describe: string) =>
 export const LineItem = z.object({
   description: z.string(),
   quantity: z.number(),
-  unitPrice: z.number().describe("Price per unit, before tax, in the invoice currency"),
+  unitPrice: z.number().nullable().describe("Price per unit, before tax, in the invoice currency"),
   amount: z.number().describe("Line total as printed on the invoice. Do NOT compute it — read it."),
   confidence: z.number().min(0).max(1),
 });

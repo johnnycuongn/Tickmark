@@ -74,6 +74,7 @@ src/schema.ts            Zod schema — single source of truth. Feeds TS types, 
 src/model/adapter.ts     The seam: Document in, ExtractionResult out. No provider vocabulary.
 src/model/gemini.ts      Gemini 2.5 Flash implementation + the prompt.
 src/model/index.ts       createAdapter() — the one place that picks a provider.
+src/normalize.ts         Canonicalisation for COMPARISON ONLY. Never mutates stored values.
 src/document.ts          File -> Document. Filename stem is the id that joins to labels.
 src/cli.ts               npm run extract -- <file>
 src/__tests__/           Schema tests. No network — they run in ~200ms.
@@ -111,6 +112,10 @@ PDF/image ──▶ extract ──▶ score ──▶ persist ──▶ review U
 Runs the pipeline over a hand-labeled ground-truth set of 15–20 documents and reports **field-level precision and
 recall**, not a single overall accuracy number. Consider Promptfoo or Braintrust rather than rolling it by hand.
 
+Report **both strict and canonical match rates** per field (canonical = both sides through `src/normalize.ts`).
+The gap between them is diagnostic: a large gap means the model has the facts right and the formatting wrong,
+which is a different problem with a different fix than being wrong about the facts.
+
 Two rules that matter more than the code:
 - Label the ground-truth set **consistently** (one documented convention for dates, currency, vendor name
   normalization) — inconsistent labels make every later metric meaningless.
@@ -124,9 +129,18 @@ free tier; a metrics-first README that leads with the accuracy numbers.
 
 ## Model choice
 
-Start on the **Gemini API free tier (2.5 Flash)** — ~1,500 requests/day, native PDF/image input, no card required,
-which suits scanned documents and keeps the eval loop cheap to re-run. Keep the model call behind a thin adapter so
-swapping to Claude tool use later is a one-file change.
+Running on **`gemini-3-flash-preview`** (set in `.env` via `GEMINI_MODEL`). Gemini's free tier suits this project:
+native PDF/image input, no card required, and cheap enough to re-run the whole eval loop repeatedly.
+
+**Caveat, and it needs discipline.** A *preview* endpoint can be updated underneath you without notice. That means
+a future "regression" might be Google shipping a new checkpoint rather than anything you did. To stay honest:
+**date-stamp every eval run and record the exact model string next to the numbers** — `ExtractionResult.model`
+already carries it, so the harness has no excuse. If reproducibility ever matters more than accuracy, pin to the
+stable `gemini-2.5-flash` and re-baseline.
+
+Re-running the harness across both models is itself a worthwhile eval, and a good thing to show in the README.
+
+Keep the model call behind the adapter in `src/model/` so swapping to Claude tool use is a one-file change.
 
 ## Roadmap
 
